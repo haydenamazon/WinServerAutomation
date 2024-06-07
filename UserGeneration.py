@@ -5,15 +5,23 @@ with open('testcsv.csv', 'r', encoding='utf-8-sig') as file:
     data = []
     for row in csv_reader:
         data.append(row)
-#print(data)     
+#print(data) 
+for i in range(len(data)):
+        for j in range(len(data[i])):
+            if data[i][j] == "" or data[i][j] is None:
+                data[i][j] = "USER"
 usernames = []
 for d in data:
     temp = d[0][0].lower() + d[1].lower()
     usernames.append(temp)
+    
 #print(usernames)
 
 onedarray = [item for sublist in data for item in sublist]
 #print(onedarray)
+for i in range(len(onedarray)):
+    if onedarray[i] == "":
+        onedarray[i] = "USER"
 
 len_array1 = len(onedarray)
 len_array2 = len(usernames)
